@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bill Splitter</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enter Dishes Price and No of person want to Share</h1>
+
+    <!-- Result will be display here -->
+    <h2></h2>
+  </body>
+
+  <!-- Result will be display on browser screen -->
+  <script>
+    function calculate(dishes_price, total_Person) {
+      let total_cost = 0,
+        paid_by_each;
+
+      for (let price of dishes_price) {
+        total_cost += price;
+      }
+
+      paid_by_each = total_cost / total_Person;
+
+      return { total_cost: total_cost, paid_by_each_person: paid_by_each };
+    }
+    let show = document.querySelector("h2");
+    let no = parseInt(prompt("HOW MANY DISHES WNAT TO ORDER"));
+    let price;
+    let dishes_price = [];
+
+    //IF TOTAL DISH IS NOT IN NUMBER
+    if (!isNaN(no) && no > 0) {
+      while (no > 0) {
+        price = parseInt(prompt("ENTER DISH PRICE"));
+
+        if (!isNaN(price) && price > 0) {
+          dishes_price.push(price);
+
+          no--; //decrement (loop) number;
+        } 
+        
+        else {
+          
+          break;
+        }
+      }
+      //if no==0 then user enter dish price in number not in text if no!=0 then in ELSE STATEMENT ERROR MESSAGE WILL BE DISPLAY
+      if (no === 0) {
+        let no_of_person = parseInt(prompt("ENTER NO OF PERSON"));
+
+        //if user enter TOTAL NUMBER OF PERSON NUMBER not in text
+        if (!isNaN(no_of_person) && no_of_person > 0) {
+          let result = calculate(dishes_price, no_of_person);
+
+          console.log(result);
+
+          show.innerHTML = `Total Price Of Dishes: ${result.total_cost}Rupees </br></br> Dishes Shared By: ${no_of_person} Persons </br></br>Paid By Each Person: ${result.paid_by_each_person}`;
+
+          show.style.color = "green";
+        }
+        //if user enter TOTAL NUMBER OF PERSON in TEXT not in NUMBER
+        else {
+          show.textContent =
+            "Enter Total Number of Person In Positive Number (Not In Text)";
+          show.style.color = "red";
+        }
+      }
+
+      //if user enter dish price in TEXT not in NUMBER
+      else {
+        show.textContent = "Enter Dish Price In Positive Number (Not In Text)";
+        show.style.color = "red";
+      }
+    }
+    //if user enter TOTAL DISH in TEXT not in NUMBER
+    else {
+      show.textContent = "Enter Total Dish  In  Positive Number  (Not In Text)";
+      show.style.color = "red";
+    }
+  </script>
+</html>

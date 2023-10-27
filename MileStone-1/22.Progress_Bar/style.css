@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: whitesmoke;
+}
+.container {
+  width: 80rem;
+  font-size: large;
+  color: blue;
+  padding: 5rem;
+  margin: 1rem auto;
+  text-align: justify;
+}
+h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.progress {
+  height: 0.5rem;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+#progress_bar {
+  background-color: cyan;
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s;
+}

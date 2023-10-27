@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove duplicate</title>
+</head>
+<body>
+    <h2>Please check the output on console</h2>
+    <script>
+        let customer_cart=["white-shirt","shoes","watch","Black-t-shirt","white-shirt","laptop","trouser","shoes","Black-t-shirt"];
+
+        //here in customer cart there are 3 duplicate items (white-shirt,Black-t-shirt,shoes)
+
+let unique=[];
+let temp;
+
+// here i sort customer_cart FOR DETECTING DUPLICATE ELEMENT 
+customer_cart.sort();
+
+for(let i=0;i<customer_cart.length;i++)
+{
+    if(customer_cart[i]!==temp)
+     {
+        unique.push(customer_cart[i]);
+        temp=customer_cart[i];
+     }
+}
+// DISPLAY ALL UNIQUE ITEMS
+ unique.forEach((item)=>{
+    console.log(item);
+})
+
+//second way
+
+// let newArr=[...new Set(customer_cart)]
+// console.log("unique items" ,newArr)
+
+    </script>
+</body>
+</html>

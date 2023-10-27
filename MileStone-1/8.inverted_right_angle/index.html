@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>print right angle triangle</title>
+    
+    
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-weight: 900;
+        font-size: 2rem;
+    }
+    #star{
+        color:green;
+    }
+</style>
+</head>
+<body>
+
+    <p style="color:blue">Please check the output(right-angle-triangle)</p>
+    
+</body>
+<script>
+    let rotate = parseInt(prompt("Enter row no for right angle triangle"));
+
+// IF USER ENTER POSITIVE NO
+ if (!isNaN(rotate) && rotate > 0) {
+  for (let i = 0; i < rotate; i++) {
+    for (let j = i; j < rotate; j++) {
+      console.log("*"); //print on browser console;
+      document.write(`<span id ="star"> * </span>`); //print on browser screen
+    }
+    document.write("</br>");
+    console.log("\n");
+  }
+ } 
+ // IF USER DOES NOT ENTER POSITIVE NO
+else {
+  document.write(
+    
+    `<p style="color:red">Please Enter Row No in Number (Not in Text) And Number Should be Positive</p>`
+  );
+}
+
+    </script>
+</html>
